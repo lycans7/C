@@ -2,7 +2,7 @@
  * MyStringCompare.c
  *
  *  Created on: 03-Jul-2018
- *      Author: eximiusdesign
+ *      Author: Parth Shah
  */
 
 #include <stdio.h>
