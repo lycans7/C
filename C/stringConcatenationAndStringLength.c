@@ -2,7 +2,7 @@
  * stringConcatenationAndStringLength.c
  *
  *  Created on: 04-Jul-2018
- *      Author: eximiusdesign
+ *      Author: Parth Shah
  */
 
 #include <stdio.h>
