@@ -6,6 +6,8 @@ label:
 	gcc -c MyStringCompare.c
 	gcc -c wordDeleteFromString.c
 	gcc -c stringConcatenationAndStringLength.c
+	gcc -c MyATOI.c
+	gcc -c My_strStr.c
 	
 	gcc Matrix_multiplication.o -o Matrix
 	gcc StringReverseNormal.o -o StringReverse
@@ -14,9 +16,11 @@ label:
 	gcc MyStringCompare.o -o MyStringCompare
 	gcc wordDeleteFromString.o -o WordDeleteFromString
 	gcc stringConcatenationAndStringLength.o -o strCatLen
+	gcc MyATOI.o -o MyATOI
+	gcc My_strStr.o -o MYStrstr
 		
 cleanall:
-		rm -rf *.o Matrix StringNor RevAWord StringReverse PositionReverse MyStringCompare WordDeleteFromString strCatLen 
+		rm -rf *.o *.out Matrix StringNor RevAWord StringReverse PositionReverse MyStringCompare WordDeleteFromString strCatLen MyATOI MYStrstr 
 		
 clean: 
-		rm -rf *.o
+		rm -rf *.o *.out
