@@ -8,6 +8,10 @@
 #ifndef INCLUDE_HEADER_H_
 #define INCLUDE_HEADER_H_
 
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 namespace stringCode {
 
 /**********************************************
@@ -40,6 +44,10 @@ int PS_strlen(char* str);
 
 char* PS_strcat(char* str1, char* str2);
 }
-namespace parth=stringCode; //re-name of namespace stringCode to parth
 
+namespace str=stringCode; //re-name of namespace stringCode to parth
+
+#ifdef __cplusplus
+}
+#endif
 #endif /* INCLUDE_HEADER_H_ */

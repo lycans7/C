@@ -5,11 +5,11 @@
  *      Author: Parth Shah
  */
 
+#include <stdio.h>
+#include <stdlib.h>
 /**********************************************
  *************String string function***********
  **********************************************/
-#include <stdio.h>
-#include <stdlib.h>
 
 char* PS_strstr(char* str, char* fnd) {
 	char* val = NULL, *buff = fnd, flag = 0;

@@ -1,9 +1,8 @@
-lib= /linking
-path= /src
-exe= /executable
-label:
-		g++ -c $(path)/My_project.cpp $(lib)/PS_lib.a
-		g++ $(path)/My_project.o -o $(exe)/exe
+lib= linking
+path= src
+exe= executable
 
+label:
+		g++ $(path)/My_project.cpp -o $(exe)/exe -L$(lib) -lPS_lib 
 clean:
- 		rm -rf $(path)/ *.o $(exe)/exe
+		rm $(exe)/exe *.o $(path)/My_project.o 

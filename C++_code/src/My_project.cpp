@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "../Include/Header.h"
 
-using namespace parth;
+using namespace str;
 
 int main(){
 	char string[50], find[50], *p;
