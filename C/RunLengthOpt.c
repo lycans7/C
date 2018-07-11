@@ -2,7 +2,7 @@
  * RunLengthOpt.c
  *
  *  Created on: 11-Jul-2018
- *      Author: eximiusdesign
+ *      Author: Parth shah
  */
 
 #include <stdio.h>
