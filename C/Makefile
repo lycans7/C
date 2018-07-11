@@ -8,6 +8,8 @@ label:
 	gcc -c stringConcatenationAndStringLength.c
 	gcc -c MyATOI.c
 	gcc -c My_strStr.c
+	gcc -c RunLength.c
+	gcc -c RunLengthOpt.c
 	
 	gcc Matrix_multiplication.o -o Matrix
 	gcc StringReverseNormal.o -o StringReverse
@@ -18,9 +20,11 @@ label:
 	gcc stringConcatenationAndStringLength.o -o strCatLen
 	gcc MyATOI.o -o MyATOI
 	gcc My_strStr.o -o MYStrstr
+	gcc RunLength.o -o RunLen
+	gcc RunLengthOpt.o -o RunOptLen
 		
 cleanall:
-		rm -rf *.o *.out Matrix StringNor RevAWord StringReverse PositionReverse MyStringCompare WordDeleteFromString strCatLen MyATOI MYStrstr 
+		rm -rf *.o *.out Matrix StringNor RevAWord StringReverse PositionReverse MyStringCompare WordDeleteFromString strCatLen MyATOI MYStrstr RunLen RunOptLen 
 		
 clean: 
 		rm -rf *.o *.out
