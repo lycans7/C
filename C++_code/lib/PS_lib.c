@@ -120,3 +120,24 @@ char* PS_strcat(char* str1, char* str2) {
 
 }
 
+/**********************************************
+ *************String to integer ****
+ **********************************************/
+
+int PS_charToInt(char* str, int count) {
+	int buff, i = 0, temp, dum;
+	temp = count;
+	while (temp > 0) {
+		temp = temp / 10;
+		i++;
+	}
+	dum = i;
+	while (count > 0) {
+		buff = count % 10;
+		str[i--] = buff + '0';
+		count = count / 10;
+	}
+	printf(" str = %s\n", str);
+	return dum;
+}
+

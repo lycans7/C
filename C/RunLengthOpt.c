@@ -2,10 +2,27 @@
  * RunLengthOpt.c
  *
  *  Created on: 11-Jul-2018
- *      Author: Parth shah
+ *      Author: Parth Shah
  */
 
 #include <stdio.h>
+
+int PS_charToInt(char* str, int count) {
+	int buff, i = 0, temp, dum;
+	temp = count;
+	while (temp > 0) {
+		temp = temp / 10;
+		i++;
+	}
+	dum = i;
+	while (count > 0) {
+		buff = count % 10;
+		str[i--] = buff + '0';
+		count = count / 10;
+	}
+	printf(" str = %s\n", str);
+	return dum;
+}
 
 void Runlength(char *str) {
 	char *ptr = str;
@@ -14,8 +31,9 @@ void Runlength(char *str) {
 		if (*++str == *ptr) {
 			count++;
 		} else {
-			if (count > 1)
-				*++ptr = count + '0';
+			if (count > 1) {
+				ptr += PS_charToInt(ptr, count);
+			}
 			count = 1;
 			*++ptr = *str;
 		}
@@ -24,7 +42,7 @@ void Runlength(char *str) {
 }
 
 int main() {
-	char string[50];
+	char string[120];
 	printf("\n Enter the string\n");
 	gets(string);
 	Runlength(string);

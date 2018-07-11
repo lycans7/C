@@ -8,9 +8,9 @@
 #include <stdio.h>
 
 void Delete(char* start, char* last, int count) {
-	int i = 0;
+	int i;
 	char temp;
-	for (i; i < count; i++) {
+	for (i = 0; i < count; i++) {
 		*start++ = *last++;
 	}
 
