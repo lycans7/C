@@ -48,7 +48,7 @@ char* PS_strcat(char* str1, char* str2);
  *************String to integer ****
  **********************************************/
 
-int PS_charToInt(char* str, int count)
+int PS_charToInt(char* str, int count);
 }
 
 namespace str=stringCode; //re-name of namespace stringCode to parth
