@@ -5,6 +5,17 @@
  *      Author: Parth shah
  */
 
+/*** this algorithm based on card picking , pick one value put at right side then pick another **
+ ****compare with right one and put left if it is greater or left if small ********************/
+
+/***********  7, 2, 4, 1, 5, 3  *********** Unsorted
+ ***********  7| 2 4 1 5 3      ***********
+ ***********  2 7| 4 1 5 3      ***********
+ ***********  2 4 7| 1 5 3      ***********
+ ***********  1 2 4 7 | 5 3     ***********
+ ***********  1 2 4 5 7 | 3     ***********
+ ***********  1 2 3 4 5 7 |     *********   Sorted */
+
 #include <stdio.h>
 
 void PS_insertionSort(int* ins, int size) {

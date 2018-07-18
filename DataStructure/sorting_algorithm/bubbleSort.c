@@ -5,6 +5,9 @@
  *      Author: Parth shah
  */
 
+/******************* In each iteration interchanging the value ****************
+ ********************in the last minimum value at left side and max at right**/
+
 #include <stdio.h>
 
 void PS_bubbleSort(int* bub, int size);

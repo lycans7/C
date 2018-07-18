@@ -5,6 +5,9 @@
  *      Author: Parth shah
  */
 
+/****************** Inter changing the index lower with current , like 2 pos to 8 pos.  7 - 0**
+ *******************answer get pos 2 = 0 , pos 8 get 7 value**********************************/
+
 #include <stdio.h>
 
 void PS_selectionSort(int *sel, int size);
@@ -34,7 +37,7 @@ void PS_selectionSort(int *sel, int size) {
 				i_min = j; 					//update the index of minimum value.
 			}
 		}
-		temp = sel[i]; 						//integer the value of minimum index to respective.
+		temp = sel[i]; 						//inter-change the value of minimum index to respective.
 		sel[i] = sel[i_min];
 		sel[i_min] = temp;
 	}
