@@ -7,7 +7,8 @@
 
 #include <stdio.h>
 
-/*  Integer values*/
+/**** Integer (~)Note if operation perform with another bitwise operator then ******
+ ****** 1's complement takes***************/
 main() {
 
    unsigned int a = 9;	/* 60 = 0011 1100 */
@@ -30,6 +31,9 @@ main() {
    printf("Line 5 - Value of c is %d\n", c );
 
    c = a >> 2;     /* 15 = 0000 1111 */
+   printf("Line 6 - Value of c is %d\n", c );
+
+   c = a & ~(a-1);     /* 15 = 0000 1111 */
    printf("Line 6 - Value of c is %d\n", c );
 
 }
