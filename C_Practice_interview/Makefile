@@ -11,6 +11,7 @@ label:
 	gcc swap_word_nibbles.c -o swap_word_nibbles
 	gcc leapYear.c -o leapYear
 	gcc genericLinkList.c -o genericLinkList
+	gcc linkedList_merge.c -o linkedList_merge
 		
 clean:
-	rm check_armstrongNo check_oddEven check_primeNo factorial palindrome_number perfect_square print_withOut_semi swap_2nos_Nt3var swap_bits swap_word_nibbles leapYear genericLinkList
+	rm check_armstrongNo check_oddEven check_primeNo factorial palindrome_number perfect_square print_withOut_semi swap_2nos_Nt3var swap_bits swap_word_nibbles leapYear genericLinkList linkedList_merge

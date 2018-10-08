@@ -1,0 +1,65 @@
+/*
+ * constantsAndPointers.txt
+ *
+ *  Created on: 24-Aug-2018
+ *      Author: Parth shah
+ */
+
+
+Const and pointers:
+
+It is important to differentiate between a pointer to a constant and a
+constant pointer to a variable.
+
+ 1) ----- Here is a pointer to a constant:
+
+  const int* p;
+
+The following statement is illegal, because it attempts to change the
+value of a constant:
+
+  *p = 3;
+
+But this one is legal, because the pointer itself is not a constant:
+
+  p = &x;
+
+2) ----- On the other hand, this declaration shows a constant pointer to a variable.
+
+  int* const p;
+
+In that case, the following statement is legal, as the variable can be changed:
+
+  *p = 3;
+
+but this one is not, because it attempts to change the value of a constant.
+
+  p = &x;
+
+3) ------ It is possible to declare a constant pointer to a constant. In that
+case neither the value of the pointer nor the value of the base data
+item can be changed:
+
+  const int* const p;
+
+
+Here is one way to remember the syntax (from Bjarne Stroustrup):
+
+Note that in const pointers, "const" always comes after the "*". For
+example:
+
+  int *const p1 = q;	// constant pointer to int variable
+  int const* p2 = q;	// pointer to constant int
+  const int* p3 = q;	// pointer to constant int
+
+Another way is to think about '*' as capturing the largest leftward
+unit that it can. 'Const' captures the smallest unit, left or right,
+that is can. So think about the examples above as:
+
+  (int*) const p1 = q;	// constant pointer to int variable
+  (int const)* p2 = q;	// pointer to constant int
+  (const int)* p3 = q;	// pointer to constant int
+
+In other words, the qualifier immediately preceding the variable is
+the first word of the definition.
+
