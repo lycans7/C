@@ -6,12 +6,11 @@
  */
 
 #include <stdio.h>
-int row, col;
+
 void print_spiral(int arr[row][col], int row_end, int col_end);
 
 int main() {
-	int i = 0, j = 0;
-
+	int row, col,i = 0, j = 0;
 	printf("\n Enter the dimension Matrix NxM \n");
 	scanf("%d%d", &row, &col);
 
