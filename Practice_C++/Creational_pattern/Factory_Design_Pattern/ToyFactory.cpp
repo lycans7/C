@@ -5,8 +5,8 @@
  *      Author: Parth shah
  */
 
-#ifndef ToyFactory.cpp
-#define ToyFactory.cpp
+#ifndef _ToyFactory_cpp
+#define _ToyFactory_cpp
 
 #include "ObjectClass.cpp"
 

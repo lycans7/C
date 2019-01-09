@@ -19,12 +19,13 @@ private:
 	void operator =(const singleton& s1) {
 
 	}
-	singleton(const singleton& s1);
+	singleton(const singleton& s1) {
+	}
 
 public:
 	static singleton *getInstance() {
 		if (sg == NULL) {
-			sg = new singleton;
+			sg = new singleton();
 		}
 		return sg;
 	}
@@ -32,7 +33,7 @@ public:
 		data = val;
 	}
 	int getdata() {
-		cout<<data<<endl;
+		cout << data << endl;
 	}
 };
 

@@ -22,9 +22,10 @@ int main() {
 	printf("\n Enter the string \n");
 	char arr[size];
 //	scanf("%s", &arr);
-	gets(arr);
+	gets(arr);  				 //we can solve this problem by putting \n or extra space in scanf
 	len = strlen(arr) / 2;
-	for (i = 0, j = strlen(arr) - 1; i < len && j > len - 1; i++, j--) {
+	for (i = 0, j = strlen(arr) - 1; i < len && i < j && j > len - 1;
+			i++, j--) {
 		rev(&arr[i], &arr[j]);
 	}
 	printf("\n string  = %s \n", arr);

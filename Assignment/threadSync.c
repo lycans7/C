@@ -42,7 +42,7 @@ int main() {
 
 	sem_init(&sem1, 0, 0);	//initialized semaphore
 	sem_init(&sem2, 0, 1);
-	sem_setprotocol(&sem2, SEM_PRIO_NONE);
+//	sem_setprotocol(&sem2, SEM_PRIO_NONE);
 
 	pthread_join(t1, NULL); //wait for other thread to finished
 	pthread_join(t2, NULL);

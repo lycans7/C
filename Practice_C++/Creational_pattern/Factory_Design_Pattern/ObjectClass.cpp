@@ -5,8 +5,8 @@
  *      Author: Parth shah
  */
 
-#ifndef ObjectClass.cpp
-#define ObjectClass.cpp
+#ifndef _ObjectClass_cpp
+#define _ObjectClass_cpp
 
 #include <iostream>
 #include <string>
@@ -28,7 +28,6 @@ public:
 class car: public Toy {
 
 public:
-	name = "Car";price = 20;
 	void PreparePart() {
 		cout << " Preparing Part" << endl;
 	}
@@ -42,14 +41,15 @@ public:
 		cout << " apply Label" << endl;
 	}
 	void showProduct() {
-		cout << " Product name " << name << endl << " Cost " << price << endl;
+		name = "Car";price = 20;
+		cout << " Product name = " << name << endl << " Cost " << price << endl;
 	}
 };
 
 class Bike: public Toy {
 
 public:
-	name = "Bike";price = 200;
+
 	void PreparePart() {
 		cout << " Preparing Part" << endl;
 	}
@@ -63,14 +63,15 @@ public:
 		cout << " apply Label" << endl;
 	}
 	void showProduct() {
-		cout << " Product name " << name << endl << " Cost " << price << endl;
+		name = "Bike";price = 200;
+		cout << " Product name = " << name << endl << " Cost " << price << endl;
 	}
 };
 
 class Plane: public Toy {
 
 public:
-	name = "Plane";price = 2000;
+
 	void PreparePart() {
 		cout << " Preparing Part" << endl;
 	}
@@ -84,7 +85,8 @@ public:
 		cout << " apply Label" << endl;
 	}
 	void showProduct() {
-		cout << " Product name " << name << endl << " Cost " << price << endl;
+		name = "Plane";price = 2000;
+		cout << " Product name = " << name << endl << " Cost " << price << endl;
 	}
 };
 

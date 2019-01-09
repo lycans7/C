@@ -40,21 +40,19 @@ public:
 	}
 
 	void request(int val) {
-		printf(" %d ",__LINE__);
+		printf(" %d %d",myLimit, __LINE__);
 		if (val < myLimit) {
+			printf(" %d ", __LINE__);
 			cout << "Handler " << myId
 					<< " handled the request with a limit of " << myLimit
 					<< endl;
-			printf(" %d ",__LINE__);
 		} else if (next != NULL) {
+			cout << "Hello" << endl;
 			next->request(val);
-			cout<<"Hello"<<endl;
-			printf(" %d ",__LINE__);
 		} else {
 			cout << "Sorry, I am the last handler (" << myId
 					<< ") and I can't handle the request." << endl;
 		}
-		printf(" %d ",__LINE__);
 	}
 };
 
@@ -64,18 +62,11 @@ int main() {
 	Handler *h3 = new specialHandler(30, 3);
 
 	h1->setHandler(h2);
-	printf(" %d ",__LINE__);
 	h1->setHandler(h3);
-	printf(" %d ",__LINE__);
-//	h2->setHandler(h3);
-	printf(" %d ",__LINE__);
 	h1->request(18);
-	printf(" %d ",__LINE__);
-	h1->request(20);
-	printf(" %d ",__LINE__);
-	h1->request(40);
+//	h1->request(20);
+//	h1->request(40);
 
-	printf(" %d ",__LINE__);
 	delete h1;
 	delete h2;
 	delete h3;

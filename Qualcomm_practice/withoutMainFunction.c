@@ -5,7 +5,7 @@
  *      Author: Parth shah
  */
 
-/*
+
 #include<stdio.h>
 #include<stdlib.h>
 // entry point function
@@ -24,10 +24,10 @@ int abc() {
 }
 
 //compile with  (gcc filename.c -nostartfiles )
-*/
+
 
 /* Second method */
-
+/*
 #include <stdio.h>
 
 #define nomain main
@@ -36,3 +36,4 @@ int nomain(){
 	printf("Hello world");
 	return 0;
 }
+*/
