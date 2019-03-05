@@ -1,0 +1,6 @@
+for compiling the test programs which require the time and the memory usage of the program,
+Please do the following,
+
+TIMEFORMAT="" time ./(filename)
+
+this command will prints the time taken by the program and the memory acquired by the same.

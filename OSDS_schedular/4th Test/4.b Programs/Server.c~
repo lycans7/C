@@ -1,0 +1,124 @@
+/*
+ * main.c
+ *
+ *  Created on: 04-Aug-2015
+ *      Author: tejas
+ */
+
+/*
+ * Develop a client server application, wherein client application sends message
+ * to server application from STDIN, server echoes’ back client Message. Client
+ * should display this server response on STDOUT with server processing time.
+ * Use special keyword “quit” to close both applications gracefully. NOTE: Message
+ * processing time = Message Rx time + Server Processing time + Message Tx Time
+ */
+
+
+#include 	<stdio.h>
+#include 	<unistd.h>
+#include 	<string.h>
+#include 	<stdlib.h>
+#include	<netinet/in.h>
+#include	<sys/socket.h>
+#include	<sys/types.h>
+#include	<signal.h>
+
+
+typedef struct sockaddr_in Socekt_Address_t;
+
+int main()
+{
+	int			 		iServer_Sockfd, iClient_Sockfd;
+	int 				iServer_Len, iClient_Len;
+	int 				iFile_Pipes[2];											/*	File descriptor that are connected to processes in special way*/
+	int					iData;
+	char				chData = 0;
+	Socekt_Address_t 	Server_Address;
+	Socekt_Address_t 	Client_Address;
+	pid_t				Child_Process;
+
+
+
+	printf("Connection less socket is used in this application as if few words\n"
+			"are lost that doesn't make any bigger difference and this application\n"
+			"does not require to be connected every time.\n");
+	printf("\nPress any key to continue...\n");
+	getchar();
+
+
+	iServer_Sockfd = socket(AF_INET, SOCK_STREAM, 0);
+	if(iServer_Sockfd == -1)
+	{
+		fprintf(stderr,"Socket creation failed in server. Program will terminate.\n");
+		exit(EXIT_FAILURE);
+	}
+
+
+	Server_Address.sin_family = AF_INET;
+	Server_Address.sin_addr.s_addr = htonl(INADDR_ANY);
+	Server_Address.sin_port = htons(9734);
+	iServer_Len = sizeof(Server_Address);
+
+	bind(iServer_Sockfd, (struct sockaddr *)&Server_Address, iServer_Len);
+
+
+	listen(iServer_Sockfd, 5);
+
+	signal(SIGCHLD, SIG_IGN);
+
+	while(1)
+	{
+		char	chBuffer[1024];
+		memset(chBuffer,0x00,sizeof(chBuffer));
+
+		fprintf(stderr,"Server is waiting...\n");
+
+		iClient_Len = sizeof(Client_Address);
+		iClient_Sockfd = accept(iServer_Sockfd,
+								(struct sockaddr *)&Client_Address,
+								(socklen_t *)&iClient_Len);
+
+		if(pipe(iFile_Pipes) == 0)										/*	Check the file descriptor for data to pass*/
+		{
+			Child_Process = fork();
+			if(Child_Process == -1)
+			{
+				fprintf(stderr,"Error creating a child process.\n"
+						"This will terminate the program.\n");
+				exit(EXIT_FAILURE);
+			}
+			if(Child_Process == 0)
+			{
+				fprintf(stderr,"Child process enterd\n");
+				read(iClient_Sockfd, chBuffer, sizeof(chBuffer));
+	//			sleep(5);
+	//			ch++;
+	//			write(iClient_Sockfd, &ch, 1);
+				if(strncmp(chBuffer,"quit",4) != 0)
+				{
+					printf("%s",chBuffer);
+					close(iClient_Sockfd);
+					exit(EXIT_SUCCESS);
+				}
+				else
+				{
+					chData = 1;
+					iData = write(iFile_Pipes[1], &chData, 1);			/*	Writes to the file descriptors so that parent can read it*/
+					if(iData == -1)
+						fprintf(stderr,"Write operation has failed\n");	/*	Notify the user for error in writing*/
+				}
+			}
+			else
+			{
+				printf("We are in parent process\n");
+				iData = read(iFile_Pipes[0],&chData,1);			/*	Read the data which was earlier written by child*/
+				if(iData == -1)
+					fprintf(stderr,"Read operation has failed\n");		/*	Notify the user for error in reading*/
+				if(chData == 1)
+					break;
+			}
+		}
+	}
+
+	return 0;
+}

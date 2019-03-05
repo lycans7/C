@@ -1,0 +1,14 @@
+#This is a make file for C_Based_Shell program
+
+C_Shell: main.o
+	@echo ''
+	@echo 'Final compilation of the file this will'
+	@echo 'make a final executable with name : "$@"'
+	gcc -Wall -o C_Shell main.o
+	@echo ''
+
+main.o: main.c
+	@echo ''
+	@echo 'This will compile the main file'
+	gcc -Wall -c main.c
+	@echo ''

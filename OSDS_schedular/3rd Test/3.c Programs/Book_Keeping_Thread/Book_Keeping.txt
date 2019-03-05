@@ -1,0 +1,6 @@
+Thread1:
+Percentage: 4%, Iteration: 1, Number of Words: 1024
+Thread2:
+Percentage: 4%, Iteration: 1, Number of Words: 1024
+Thread3:
+Percentage: 4%, Iteration: 1, Number of Words: 1024

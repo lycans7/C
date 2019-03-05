@@ -1,0 +1,12 @@
+#Make file for shared memory program
+Shared_Mem:	main.o
+	@echo ''
+	@echo 'Compiling the file final exectuable will be "$@"'
+	gcc -Wall -o Shared_Mem main.o
+	@echo ''
+	
+main.o:	main.c
+	@echo ''
+	@echo 'Compiling the main file'
+	gcc -Wall -c main.c
+	@echo ''

@@ -1,0 +1,9 @@
+# Make file for final executable of Parent_Child_Process
+Parent_Child_Process:	main.o
+	@echo 'Building the final app'
+	gcc	-Wall -o Parent_Child_Process main.o
+
+# Main file compilation
+main.o:	main.c
+	@echo 'Building the main file'
+	gcc -Wall -c main.c

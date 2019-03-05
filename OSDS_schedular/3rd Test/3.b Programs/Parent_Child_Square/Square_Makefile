@@ -1,0 +1,7 @@
+Square:	main.o
+	@echo 'Output of this make file will generate final executable with name "$@"'
+	gcc -Wall -o Square main.o
+	
+main.o:	main.c
+	gcc -Wall -c main.c
+	

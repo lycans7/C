@@ -1,0 +1,9 @@
+Multi_Threading:	main.o Thread_Functions.o
+	@echo 'Compiling final executable with name $@'
+	gcc -Wall -o Multi_Threading main.o Thread_Functions.o -lpthread
+
+main.o:	main.c Thread_Header.h
+	gcc -Wall -c main.c
+
+Thread_Functions.o:	Thread_Functions.c Thread_Header.h
+	gcc -Wall -c Thread_Functions.c

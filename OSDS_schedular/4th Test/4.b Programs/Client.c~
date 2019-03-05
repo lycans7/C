@@ -1,0 +1,55 @@
+/*
+ * Client.c
+ *
+ *  Created on: 04-Aug-2015
+ *      Author: tejas
+ */
+
+#include 	<stdio.h>
+#include 	<unistd.h>
+#include 	<string.h>
+#include 	<stdlib.h>
+#include	<netinet/in.h>
+#include	<arpa/inet.h>
+#include	<sys/socket.h>
+#include	<sys/types.h>
+
+
+typedef struct sockaddr_in Socekt_Address_t;
+
+int main()
+{
+	int 				iSockfd;
+	int 				iLen;
+	int 				iResult;
+	Socekt_Address_t 	Client_Address;
+	char 				chBuffer[1024];
+
+//	memset(chBuffer,0x00,sizeof(chBuffer));
+
+	iSockfd = socket(AF_INET, SOCK_STREAM, 0);
+
+	
+	Client_Address.sin_family = AF_INET;
+	Client_Address.sin_addr.s_addr = inet_addr("127.0.0.1");
+	Client_Address.sin_port = htons(9734);
+	iLen = sizeof(Client_Address);
+
+	iResult = connect(iSockfd, (struct sockaddr *)&Client_Address, iLen);
+	if(iResult == -1)
+	{
+		perror("Error in connecting to the server.\n"
+				"This will terminate the program.\n");
+		close(iSockfd);
+		exit(EXIT_FAILURE);
+	}
+
+//	strcpy(chBuffer,"Tejas\n");
+	if(fgets(chBuffer,sizeof(chBuffer),stdin) == NULL)
+	{
+		fprintf(stderr,"Reading error\n");
+	}
+	write(iSockfd,chBuffer,sizeof(chBuffer));
+	close(iSockfd);
+	exit(EXIT_SUCCESS);
+}

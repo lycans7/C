@@ -1,0 +1,13 @@
+#This is make file for File reading program
+
+File_Reading: main.o
+	@echo 'This will compile final executable'
+	@echo 'with name "$@"'
+	gcc -Wall -o File_Reading main.o -lpthread
+	@echo ''
+
+main.o: main.c
+	@echo ''
+	@echo 'This will compile the main file'
+	gcc -Wall -c -lptherad main.c
+	@echo ''
