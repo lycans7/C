@@ -54,7 +54,7 @@ char* PS_strstr(char* str, char* fnd) {
 
 int PS_atoi(char* str) {
 	if (*str == '\0') {
-		return NULL;
+		return 0;
 	}
 
 	int buff = 0;
